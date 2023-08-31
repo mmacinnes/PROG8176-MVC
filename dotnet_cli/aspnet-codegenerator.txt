@@ -1,0 +1,28 @@
+Usage: aspnet-codegenerator [arguments] [options]
+
+Arguments:
+  generator  Name of the generator. Check available generators below.
+
+Options:
+  -p|--project             Path to .csproj file in the project.
+  -n|--nuget-package-dir
+  -c|--configuration       Configuration for the project (Possible values: Debug/ Release)
+  -tfm|--target-framework  Target Framework to use. (Short folder name of the tfm. eg. net46)
+  -b|--build-base-path
+  --no-build
+
+Selected Code Generator: identity
+
+Generator Options:
+  --dbContext|-dc                : Name of the DbContext to use, or generate (if it does not exist).
+  --files|-fi                    : List of semicolon separated files to scaffold. Use the --listFiles option to see the available oe the available options.
+  --listFiles|-lf                : Lists the files that can be scaffolded by using the '--files' option.
+  --userClass|-u                 : Name of the User class to generate.
+  --databaseProvider|-dbProvider : Database provider to use. Options include 'sqlserver' (default), 'sqlite', 'cosmos', 'postgres'.mos', 'postgres'.
+  --force|-f                     : Use this option to overwrite existing files.
+  --useDefaultUI|-udui           : Use this option to setup identity and to use Default UI.
+  --layout|-l                    : Specify a custom layout file to use.
+  --generateLayout|-gl           : Use this option to generate a new _Layout.cshtml
+  --bootstrapVersion|-b          : Specify the bootstrap version. Valid values: '3', '4'. Default is 4.
+  --useSqLite|-sqlite            : Flag to specify if DbContext should use SQLite instead of SQL Server.
+

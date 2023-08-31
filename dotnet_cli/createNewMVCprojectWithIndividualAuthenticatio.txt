@@ -1,0 +1,97 @@
+dotnet new mvc -n FirstApp -lang "C#" -f net7.0 -d --verbosity diag -au Individual -uld
+
+dotnet new mvc -lang "C#" -n SampleApp -f net7.0 -d --verbosity diag -au Individual -uld
+
+dotnet build SampleApp.csproj --arch x64
+
+dotnet new sln
+dotnet sln add SampleApp.csprog
+
+dotnet sln ./SampleApp.sln add SampleApp.csproj
+
+
+dotnet tool install --global dotnet-ef
+
+dotnet ef database update
+
+https://learn.microsoft.com/en-us/dotnet/core/install/how-to-detect-installed-versions?pivots=os-windows
+
+https://dotnet.microsoft.com/en-us/download
+
+https://learn.microsoft.com/en-us/dotnet/core/tools/
+
+https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new
+
+
+https://learn.microsoft.com/en-us/dotnet/core/rid-catalog
+
+https://learn.microsoft.com/en-us/ef/core/cli/dotnet
+
+dotnet ef migrations add Movies
+dotnet ef database update
+
+
+dotnet aspnet-codegenerator controller -m Movie -dc SampleApp.Data.ApplicationDbContext -name MoviesController -outDir Controllers
+
+dotnet aspnet-codegenerator controller -m Genre -dc SampleApp.Data.ApplicationDbContext -name GenresController -outDir Controllers
+
+
+
+dotnet aspnet-codegenerator [arguments] [-p|--project] [-n|--nuget-package-dir] [-c|--configuration] [-tfm|--target-framework] [-b|--build-base-path] [--no-build] 
+dotnet aspnet-codegenerator [-h|--help]
+
+**************************
+
+https://www.syncfusion.com/blogs/post/how-to-develop-an-asp-net-core-application-using-visual-studio-code.aspx
+
+https://learn.microsoft.com/en-us/dotnet/core/tutorials/testing-library-with-visual-studio-code?pivots=dotnet-7-0
+
+
+
+====================================================================
+
+Open terminal
+
+dotnet new mvc -n FirstApp -o FirstApp -lang "C#" -f net7.0 -d --verbosity diag -au Individual -uld
+
+cd FirstApp
+
+dotnet build FirstApp.csproj --arch x64
+
+cd ..
+
+dotnet new sln
+
+dotnet sln add FirstApp
+
+dotnet tool install --global dotnet-ef
+
+cd FirstApp
+
+// Modify appsetting.json  connection String, if needed
+
+dotnet ef database update
+
+dotnet run
+
+
+
+
+
+dotnet new mvc -n Volunteer -o Volunteer -lang "C#" -f net7.0 -d --verbosity diag -au Individual -uld
+
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+
+//https://learn.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-7.0&tabs=visual-studio
+dotnet aspnet-codegenerator identity -dc MyApplication.Data.ApplicationDbContext --files "Account.Register;Account.Login"
+
+
+
+dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\aspnetapp.pfx -p $volunteer$
+dotnet dev-certs https --trust
+
+dotnet user-secrets -p Volunteer.csproj set "Kestrel:Certificates:Development:Password" "Wins4ton"
+
+docker build --pull -t Volunteer .
+
+docker run --rm -it -p 8000:80 -p 8001:443 -e ASPNETCORE_URLS="https://+;http://+" -e ASPNETCORE_HTTPS_PORT=8001 -e ASPNETCORE_ENVIRONMENT=Development -v $env:APPDATA\microsoft\UserSecrets\:/root/.microsoft/usersecrets -v $env:USERPROFILE\.aspnet\https:/root/.aspnet/https/ volunteerapp

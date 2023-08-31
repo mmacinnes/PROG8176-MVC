@@ -1,0 +1,47 @@
+
+//  Create an MVC application
+
+md c:\source\PROG8176\MVC
+
+dotnet new sln
+
+dotnet new mvc -lang "C#" -n Volunteer -f net7.0 -d --verbosity diag -au Individual -uld
+
+dotnet sln add Volunteer
+
+dotnet build Volunteer --arch x64
+
+modify c:\source\PROG8176\MVC\Volunteer\appsettings.json    
+           "DefaultConnection": "Server=localdb)\mssqllocaldb;Database=mvcVolunteer;
+                                 Trusted_Connection=True;
+                                 MultipleActiveResultSets=true"
+
+if not executed previously       
+dotnet tool install --global dotnet-ef
+
+cd Volunteer
+
+dotnet ef database update
+
+dotnet run
+
+
+//  Add a test project
+
+https://learn.microsoft.com/en-us/dotnet/core/tutorials/testing-library-with-visual-studio-code?pivots=dotnet-7-0
+
+https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-dotnet-test
+
+dotnet new xunit -o VolunteerTestX
+--dotnet new nunit -o VolunteerTestN
+
+
+dotnet sln add VolunteerTestX
+
+dotnet add VolunteerTestX/VolunteerTestX.csproj reference Volunteer/Volunteer.csproj
+
+cd VolunteerX
+dotnet add package Moq
+
+
+dotnet test

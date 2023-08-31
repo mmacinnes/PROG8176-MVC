@@ -1,0 +1,26 @@
+How to Develop an ASP.NET Core Application Using Visual Studio Code
+
+Mathankumar Rajendran
+October 17, 2022
+
+Visual Studio Code (VS Code) is a free, cross-platform, and lightweight source-code editor developed by Microsoft for Windows, Linux, and Mac operating systems. It is a source-code editor while Visual Studio is an IDE (integrated development environment). VS Code supports development operations such as debugging, task running, and version control, like Visual Studio.
+
+In this blog, we will learn about developing, debugging, testing, and deploying ASP.NET Core applications using Visual Studio Code. It will include:
+
+Install essential plugins.
+Create an ASP.NET Core application.
+How to run the project.
+How to set breakpoints and debug the source.
+Run unit test cases.
+Advantages.
+Limitations.
+Commands, shortcuts, and extensions.
+Prerequisites
+The following packages should be installed in your machine:
+
+.NET Core SDK
+Node.js
+Visual Studio Code
+
+
+	https://www.syncfusion.com/blogs/post/how-to-develop-an-asp-net-core-application-using-visual-studio-code.aspx
